@@ -1,6 +1,17 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { AuthProvider } from "../context/AuthContext";
+import { Inter, Space_Grotesk } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+});
 
 export const metadata = {
   title: "MindHeroes",
@@ -13,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning={true}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body suppressHydrationWarning={true} className="font-sans text-gray-900 antialiased overflow-x-hidden">
         <AuthProvider>
           <Navbar />
           {children}
